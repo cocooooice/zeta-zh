@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Zeta 中文助手",
+  "version": "0.1.0",
+  "description": "Zeta 界面汉化与按需双语阅读。支持浏览器本地翻译或自备兼容 API。非官方项目。",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage"],
+  "optional_host_permissions": ["https://*/*", "http://localhost/*", "http://127.0.0.1/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "设置 Zeta 中文助手" },
+  "options_page": "options.html",
+  "content_scripts": [{
+    "matches": ["https://zeta-ai.io/*", "https://www.zeta-ai.io/*"],
+    "js": ["dictionary.js", "content.js"],
+    "run_at": "document_idle"
+  }]
+}

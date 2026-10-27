@@ -1,0 +1,12 @@
+{
+  "name": "zeta-zh",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/provider.test.js",
+    "test:browser": "node tests/browser.cjs",
+    "package": "python3 scripts/package.py",
+    "test:extension": "node tests/extension.cjs"
+  }
+}

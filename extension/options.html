@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zeta 中文助手 · 设置</title>
+<link rel="stylesheet" href="options.css">
+<main>
+  <span class="badge">非官方 · 开源 · v0.1.0</span>
+  <h1>Zeta 中文助手</h1>
+  <p class="lead">保留故事的原声，让中文阅读更顺畅。</p>
+  <form id="settings">
+    <label for="provider">翻译方式</label>
+    <select id="provider"><option value="local">浏览器本地翻译（无需密钥）</option><option value="api">自备兼容 Chat Completions 的 API</option></select>
+    <p>本地翻译需要浏览器支持 Translator API 及对应语言模型。不可用时，网页会提示切换 API。</p>
+    <fieldset id="api" hidden>
+      <legend>翻译服务</legend>
+      <label for="endpoint">完整接口地址</label>
+      <input id="endpoint" type="url" placeholder="https://your-provider.example/v1/chat/completions" autocomplete="off">
+      <label for="model">模型名称</label>
+      <input id="model" placeholder="填写服务商提供的模型 ID" autocomplete="off">
+      <label for="apiKey">API 密钥（本地服务可留空）</label>
+      <input id="apiKey" type="password" autocomplete="off">
+      <p>点击翻译后，所选文字或当前可见文字会发送给此服务，费用与数据政策由服务商决定。密钥保存在本机扩展存储中，不随浏览器同步；页面脚本无法直接读取，但本机用户仍能通过开发者工具查看。</p>
+    </fieldset>
+    <label class="check"><input id="uiEnabled" type="checkbox"> 默认汉化常见界面词条</label>
+    <button type="submit">保存设置</button><button type="button" id="clear">删除 API 配置与密钥</button>
+    <output role="status" aria-live="polite"></output>
+  </form>
+  <p class="foot">安装后打开 <a href="https://zeta-ai.io/en" target="_blank" rel="noreferrer">Zeta</a>，使用右下角的中文助手。只处理网页文字，不读取登录凭据，不自动发送消息。</p>
+</main>
+<script type="module" src="options.js"></script>
+</html>
